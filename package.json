@@ -1,7 +1,11 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/victandry/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/victandry/frontend-project-44/actions)",
+  "type": "module",
+  "description": "Frontend project",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/victandry/frontend-project-44/issues"
   },
-  "homepage": "https://github.com/victandry/frontend-project-44#readme"
+  "homepage": "https://github.com/victandry/frontend-project-44#readme",
+  "dependencies": {
+    "makefile": "^0.0.2"
+  }
 }
