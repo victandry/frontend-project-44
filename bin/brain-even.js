@@ -24,6 +24,8 @@ const name = readlineSync.question('May I have your name? ');
 console.log(`Hello, ${name}!\nAnswer "yes" if the number is even, otherwise answer "no".`);
 let success = 0;
 while (success < 3) {
-  success = brainEvenGame(name) ? success + 1 : 0;
+  success = brainEvenGame(name) ? success + 1 : 4;
+  if (success === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
 }
-console.log(`Congratulations, ${name}!`);
