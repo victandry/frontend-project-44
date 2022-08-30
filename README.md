@@ -9,3 +9,5 @@ brain-calc.js: https://asciinema.org/a/96hWHVgHpmft06GQmV1cC2KDg
 brain-gcd.js: https://asciinema.org/a/8yKmVRkDzJlKZkSbuYLz7gytQ
 
 brain-progression.js: https://asciinema.org/a/la2lk8klB2n7mSEGvqdI250aI
+
+brain-prime.js: https://asciinema.org/a/zMc4lsG7SW8TsswQE3vadhIux
