@@ -26,7 +26,7 @@ const brainProgressionRound = () => {
   const corrAnswer = progr[replElemNum]; // правильный ответ - заменяемый элемент прогрессии
   progr[replElemNum] = '..';
   console.log('What number is missing in the progression?');
-  console.log(`Question: ${progr}`);
+  console.log(`Question: ${progr.join(' ')}`);
   const userAnswer = Number(readlineSync.question('Your answer: '));
   return [userAnswer, corrAnswer];
 };
