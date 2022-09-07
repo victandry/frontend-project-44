@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/victandry/frontend-project-44#readme",
   "dependencies": {
-    "makefile": "^0.0.2",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
