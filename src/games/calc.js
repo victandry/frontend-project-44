@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { isCorrect, greeting } from '../index.js';
-
-const generateRand = () => (Math.round(Math.random() * 100));
+import runGame from '../index.js';
+import generateRand from '../utils.js';
 
 const generateOper = () => {
   const randNum = generateRand() % 3;
@@ -24,9 +23,9 @@ const getCalc = (num1, num2, operand) => {
   }
 };
 
-const brainCalcRound = () => {
-  const num1 = generateRand();
-  const num2 = generateRand();
+const runRound = () => {
+  const num1 = generateRand(0, 100);
+  const num2 = generateRand(0, 100);
   const operand = generateOper();
   console.log('What is the result of the expression?');
   console.log(`Question: ${num1} ${operand} ${num2}`);
@@ -35,14 +34,8 @@ const brainCalcRound = () => {
   return [userAnswer, corrAnswer];
 };
 
-const brainCalcGame = () => {
-  const name = greeting();
-  for (let i = 0; i < 3; i += 1) {
-    if (!isCorrect(brainCalcRound(), name)) {
-      return;
-    }
-  }
-  console.log(`Congratulations, ${name}!`);
+const runBrainCalc = () => {
+  runGame(runRound);
 };
 
-export default brainCalcGame;
+export default runBrainCalc;
