@@ -5,7 +5,7 @@ import runGame from '../index.js';
 import generateRand from '../utils.js';
 
 const generateOper = () => {
-  const randNum = generateRand() % 3;
+  const randNum = generateRand() % 3; // для выбора рандомного операнда
   switch (randNum) {
     case 0: return '+';
     case 1: return '-';
