@@ -13,11 +13,11 @@ const generateProgr = (length, startElem, interval) => {
 };
 
 const runRound = () => {
-  const length = generateRand(5, 10); // длина прогрессии от 5 до 10
-  const replElemNum = generateRand(0, length - 1); // номер загадываемого элемента
+  const lengthProgr = generateRand(5, 10); // длина прогрессии от 5 до 10
+  const replElemNum = generateRand(0, lengthProgr - 1); // номер загадываемого элемента
   const startElem = generateRand(0, 100); // значение начального элемента
-  const interval = generateRand(0, 50); // значение интервала прогрессии
-  const progr = generateProgr(length, startElem, interval); // создание прогрессии
+  const intervalProgr = generateRand(0, 50); // значение интервала прогрессии
+  const progr = generateProgr(lengthProgr, startElem, intervalProgr); // создание прогрессии
   const corrAnswer = progr[replElemNum]; // правильный ответ - заменяемый элемент прогрессии
   progr[replElemNum] = '..';
   console.log('What number is missing in the progression?');
