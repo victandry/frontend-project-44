@@ -6,7 +6,8 @@ import generateRand from '../utils.js';
 
 const isPrime = (num) => {
   let div = 1;
-  for (let i = 2; i <= Math.ceil(num / 2); i += 1) {
+  const halfNum = Math.ceil(num / 2);
+  for (let i = 2; i <= halfNum; i += 1) {
     if (num % i === 0) {
       div = i;
     }
