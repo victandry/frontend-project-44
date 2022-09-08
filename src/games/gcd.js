@@ -3,19 +3,19 @@ import runGame from '../index.js';
 import generateRand from '../utils.js';
 
 const getGcd = (num1, num2) => {
-  let gcd = 1;
+  let gcd = 1; // НОД по умолчанию
   let remn = -1; // остаток от деления
-  let absnum1 = Math.abs(num1);
-  let absnum2 = Math.abs(num2);
-  if (Math.sign(absnum1 - absnum2) < 0) {
-    absnum1 = absnum2;
-    absnum2 = Math.abs(num1);
+  let absNum1 = Math.abs(num1);
+  let absNum2 = Math.abs(num2);
+  if (Math.sign(absNum1 - absNum2) < 0) {
+    absNum1 = absNum2;
+    absNum2 = Math.abs(num1);
   }
   while (remn !== 0 && remn !== 1) { // алгоритм Евклида
-    remn = absnum1 % absnum2; // если будет = 0, то НОД = absnum2; если = 1, то вз-простые числа
-    gcd = absnum2;
-    absnum1 = absnum2;
-    absnum2 = remn;
+    remn = absNum1 % absNum2; // если будет = 0, то НОД = absnum2; если = 1, то вз-простые числа
+    gcd = absNum2;
+    absNum1 = absNum2;
+    absNum2 = remn;
     if (remn === 1) {
       gcd = 1;
     }
