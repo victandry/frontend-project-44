@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
-import runGame from '../index.js';
-import generateRand from '../utils.js';
+import run from '../index.js';
+import getRandomNumber from '../utils.js';
 
-const generateOper = () => {
-  const randNum = generateRand() % 3; // для выбора рандомного операнда
-  switch (randNum) {
+const getRandomOperand = () => {
+  const randomNumber = getRandomNumber() % 3; // для выбора рандомного операнда
+  switch (randomNumber) {
     case 0: return '+';
     case 1: return '-';
     case 2: return '*';
@@ -14,28 +13,27 @@ const generateOper = () => {
   }
 };
 
-const getCalc = (num1, num2, operand) => {
+const getCalculation = (number1, number2, operand) => {
   switch (operand) {
-    case '+': return num1 + num2;
-    case '-': return num1 - num2;
-    case '*': return num1 * num2;
+    case '+': return number1 + number2;
+    case '-': return number1 - number2;
+    case '*': return number1 * number2;
     default: return 0;
   }
 };
 
 const runRound = () => {
-  const num1 = generateRand(0, 100);
-  const num2 = generateRand(0, 100);
-  const operand = generateOper();
-  console.log('What is the result of the expression?');
-  console.log(`Question: ${num1} ${operand} ${num2}`);
-  const userAnswer = Number(readlineSync.question('Your answer: '));
-  const corrAnswer = getCalc(num1, num2, operand);
-  return [userAnswer, corrAnswer];
+  const number1 = getRandomNumber(0, 100);
+  const number2 = getRandomNumber(0, 100);
+  const operand = getRandomOperand();
+  const question = `Question: ${number1} ${operand} ${number2}`;
+  const correctAnswer = getCalculation(number1, number2, operand);
+  return [question, correctAnswer];
 };
 
-const runBrainCalc = () => {
-  runGame(runRound);
+const runCalc = () => {
+  const gameDescription = 'What is the result of the expression?';
+  run(runRound, gameDescription);
 };
 
-export default runBrainCalc;
+export default runCalc;
