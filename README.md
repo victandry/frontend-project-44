@@ -13,7 +13,7 @@
 Каждая игра вызывается по отдельности.
 
 ### Минимальные требования
-Node.js версия 17.9.0 и выше
+Node.js версия 13.2.0 и выше
 
 ### Инструкция по установке
 ```
@@ -24,20 +24,20 @@ npm i brain-games
 ```
 brain-even
 ```
-[![asciicast](https://asciinema.org/a/6EuSrjYIZgk0JzwKhALI3q7E6.svg)](https://asciinema.org/a/6EuSrjYIZgk0JzwKhALI3q7E6)
+[![asciicast](https://asciinema.org/a/HEOoSZiFjx1ZBI3fYvQKqJN0T.svg)](https://asciinema.org/a/HEOoSZiFjx1ZBI3fYvQKqJN0T)
 ```
 brain-calc
 ```
-[![asciicast](https://asciinema.org/a/96hWHVgHpmft06GQmV1cC2KDg.svg)](https://asciinema.org/a/96hWHVgHpmft06GQmV1cC2KDg)
+[![asciicast](https://asciinema.org/a/2cJ6VDf0nrpXuewdJZk5C99AQ.svg)](https://asciinema.org/a/2cJ6VDf0nrpXuewdJZk5C99AQ)
 ```
 brain-gcd
 ```
-[![asciicast](https://asciinema.org/a/8yKmVRkDzJlKZkSbuYLz7gytQ.svg)](https://asciinema.org/a/8yKmVRkDzJlKZkSbuYLz7gytQ)
+[![asciicast](https://asciinema.org/a/YvlpDhrgjYrQkyQb5tbpSqTMc.svg)](https://asciinema.org/a/YvlpDhrgjYrQkyQb5tbpSqTMc)
 ```
 brain-progression
 ```
-[![asciicast](https://asciinema.org/a/la2lk8klB2n7mSEGvqdI250aI.svg)](https://asciinema.org/a/la2lk8klB2n7mSEGvqdI250aI)
+[![asciicast](https://asciinema.org/a/1t1Zxn9HXoRwjhGZT0SoGB3Xx.svg)](https://asciinema.org/a/1t1Zxn9HXoRwjhGZT0SoGB3Xx)
 ```
 brain-prime
 ```
-[![asciicast](https://asciinema.org/a/zMc4lsG7SW8TsswQE3vadhIux.svg)](https://asciinema.org/a/zMc4lsG7SW8TsswQE3vadhIux)
+[![asciicast](https://asciinema.org/a/E2mMVkGOi5SbKChfpgSDsbQ5G.svg)](https://asciinema.org/a/E2mMVkGOi5SbKChfpgSDsbQ5G)
