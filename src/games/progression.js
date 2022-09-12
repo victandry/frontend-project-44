@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
-import runGame from '../index.js';
-import generateRand from '../utils.js';
+import run from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const generateProgr = (length, startElem, interval) => {
   const progr = [];
@@ -13,21 +12,20 @@ const generateProgr = (length, startElem, interval) => {
 };
 
 const runRound = () => {
-  const lengthProgr = generateRand(5, 10); // длина прогрессии от 5 до 10
-  const replElemNum = generateRand(0, lengthProgr - 1); // номер загадываемого элемента
-  const startElem = generateRand(0, 100); // значение начального элемента
-  const intervalProgr = generateRand(0, 50); // значение интервала прогрессии
+  const lengthProgr = getRandomNumber(5, 10); // длина прогрессии от 5 до 10
+  const replElemNum = getRandomNumber(0, lengthProgr - 1); // номер загадываемого элемента
+  const startElem = getRandomNumber(0, 100); // значение начального элемента
+  const intervalProgr = getRandomNumber(0, 50); // значение интервала прогрессии
   const progr = generateProgr(lengthProgr, startElem, intervalProgr); // создание прогрессии
   const corrAnswer = progr[replElemNum]; // правильный ответ - заменяемый элемент прогрессии
   progr[replElemNum] = '..';
-  console.log('What number is missing in the progression?');
-  console.log(`Question: ${progr.join(' ')}`);
-  const userAnswer = Number(readlineSync.question('Your answer: '));
-  return [userAnswer, corrAnswer];
+  const question = `Question: ${progr.join(' ')}`;
+  return [question, corrAnswer];
 };
 
-const runBrainProgression = () => {
-  runGame(runRound);
+const runProgression = () => {
+  const gameDescription = 'What number is missing in the progression?';
+  run(runRound, gameDescription);
 };
 
-export default runBrainProgression;
+export default runProgression;
