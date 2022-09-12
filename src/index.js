@@ -6,12 +6,12 @@ const run = (receiveQnA, gameDescription) => {
   console.log(`Hello, ${name}!`);
   console.log(gameDescription);
   for (let i = 0; i < 3; i += 1) {
-    const [question, corrAnswer] = receiveQnA();
+    const [question, correctAnswer] = receiveQnA();
     console.log(question);
     const userAnswer = readlineSync.question('Your answer: ');
-    const correct = userAnswer === String(corrAnswer);
+    const correct = userAnswer === String(correctAnswer);
     if (!correct) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${corrAnswer}.`);
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
