@@ -28,8 +28,8 @@ const runRound = () => {
   const number1 = getRandomNumber(0, 100);
   const number2 = getRandomNumber(0, 100);
   const question = `Question: ${number1} ${number2}`;
-  const corrAnswer = getGcd(number1, number2);
-  return [question, corrAnswer];
+  const correctAnswer = getGcd(number1, number2);
+  return [question, correctAnswer];
 };
 
 const runGcd = () => {
