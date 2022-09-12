@@ -3,23 +3,23 @@
 import run from '../index.js';
 import getRandomNumber from '../utils.js';
 
-const isPrime = (num) => {
-  let div = 1;
-  const halfNum = Math.ceil(num / 2);
-  for (let i = 2; i <= halfNum; i += 1) {
-    if (num % i === 0) {
-      div = i;
+const isPrime = (number) => {
+  let divisor = 1;
+  const halfNumber = Math.ceil(number / 2);
+  for (let i = 2; i <= halfNumber; i += 1) {
+    if (number % i === 0) {
+      divisor = i;
     }
   }
-  const answer = div === 1 ? 'yes' : 'no';
+  const answer = divisor === 1 ? 'yes' : 'no';
   return answer;
 };
 
 const runRound = () => {
-  const num = getRandomNumber(0, 100);
-  const question = `Question: ${num}`;
-  const corrAnswer = isPrime(num);
-  return [question, corrAnswer];
+  const number = getRandomNumber(0, 100);
+  const question = `Question: ${number}`;
+  const correctAnswer = isPrime(number);
+  return [question, correctAnswer];
 };
 
 const runPrime = () => {
