@@ -1,22 +1,23 @@
-import readlineSync from 'readline-sync';
-import runGame from '../index.js';
-import generateRand from '../utils.js';
+#!/usr/bin/env node
+
+import run from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const getGcd = (num1, num2) => {
   let gcd = 1; // НОД по умолчанию
-  let remn = -1; // остаток от деления
-  let absNum1 = Math.abs(num1);
-  let absNum2 = Math.abs(num2);
-  if (Math.sign(absNum1 - absNum2) < 0) {
-    absNum1 = absNum2;
-    absNum2 = Math.abs(num1);
+  let remainder = 2; // остаток от деления, сначала произвольный
+  let number1 = Math.abs(num1);
+  let number2 = Math.abs(num2);
+  if (Math.sign(number1 - number2) < 0) {
+    number1 = number2;
+    number2 = Math.abs(num1);
   }
-  while (remn !== 0 && remn !== 1) { // алгоритм Евклида
-    remn = absNum1 % absNum2; // если будет = 0, то НОД = absnum2; если = 1, то вз-простые числа
-    gcd = absNum2;
-    absNum1 = absNum2;
-    absNum2 = remn;
-    if (remn === 1) {
+  while (remainder ** 2 > 1) { // алгоритм Евклида
+    remainder = number1 % number2; // если = 0, то НОД = absnum2; если = 1, то вз-простые числа
+    gcd = number2;
+    number1 = number2;
+    number2 = remainder;
+    if (remainder === 1) {
       gcd = 1;
     }
   }
@@ -24,17 +25,16 @@ const getGcd = (num1, num2) => {
 };
 
 const runRound = () => {
-  const num1 = generateRand(0, 100);
-  const num2 = generateRand(0, 100);
-  console.log('Find the greatest common divisor of given numbers.');
-  console.log(`Question: ${num1} ${num2}`);
-  const userAnswer = Number(readlineSync.question('Your answer: '));
-  const corrAnswer = getGcd(num1, num2);
-  return [userAnswer, corrAnswer];
+  const number1 = getRandomNumber(0, 100);
+  const number2 = getRandomNumber(0, 100);
+  const question = `Question: ${number1} ${number2}`;
+  const corrAnswer = getGcd(number1, number2);
+  return [question, corrAnswer];
 };
 
-const runBrainGcd = () => {
-  runGame(runRound);
+const runGcd = () => {
+  const gameDescription = 'Find the greatest common divisor of given numbers.';
+  run(runRound, gameDescription);
 };
 
-export default runBrainGcd;
+export default runGcd;
