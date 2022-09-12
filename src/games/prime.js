@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
-import runGame from '../index.js';
-import generateRand from '../utils.js';
+import run from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const isPrime = (num) => {
   let div = 1;
@@ -17,16 +16,15 @@ const isPrime = (num) => {
 };
 
 const runRound = () => {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  const num = generateRand(0, 100);
-  console.log(`Question: ${num}`);
-  const userAnswer = readlineSync.question('Your answer: ');
+  const num = getRandomNumber(0, 100);
+  const question = `Question: ${num}`;
   const corrAnswer = isPrime(num);
-  return [userAnswer, corrAnswer];
+  return [question, corrAnswer];
 };
 
-const runBrainPrime = () => {
-  runGame(runRound);
+const runPrime = () => {
+  const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  run(runRound, gameDescription);
 };
 
-export default runBrainPrime;
+export default runPrime;
