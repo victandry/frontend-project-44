@@ -15,8 +15,7 @@ const isPrime = (number) => {
       divisor = i;
     }
   }
-  const answer = divisor === 1 ? 'yes' : 'no';
-  return answer;
+  return divisor === 1 ? 'yes' : 'no';
 };
 
 const runRound = () => {
