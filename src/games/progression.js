@@ -1,7 +1,15 @@
 #!/usr/bin/env node
 
 import run from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber, generateIndex } from '../utils.js';
+
+const description = 'What number is missing in the progression?';
+const minLengthValue = 5;
+const maxLengthValue = 10;
+const minElementValue = 0;
+const maxElementValue = 100;
+const minIntervalValue = 1;
+const maxIntervalValue = 50;
 
 const generateProgression = (length, startElement, interval) => {
   const progression = [];
@@ -12,20 +20,19 @@ const generateProgression = (length, startElement, interval) => {
 };
 
 const runRound = () => {
-  const progressionLength = getRandomNumber(5, 10); // длина прогрессии от 5 до 10
-  const elementToReplace = getRandomNumber(0, progressionLength - 1); // номер загадыв. элемента
-  const startElement = getRandomNumber(0, 100); // значение начального элемента
-  const progressionInterval = getRandomNumber(0, 50); // значение интервала прогрессии
+  const progressionLength = getRandomNumber(minLengthValue, maxLengthValue);
+  const startElement = getRandomNumber(minElementValue, maxElementValue);
+  const progressionInterval = getRandomNumber(minIntervalValue, maxIntervalValue);
   const progression = generateProgression(progressionLength, startElement, progressionInterval);
-  const correctAnswer = progression[elementToReplace]; // прав. ответ - заменяемый эл-т прогрессии
-  progression[elementToReplace] = '..';
-  const question = `Question: ${progression.join(' ')}`;
+  const replacingElementIndex = generateIndex(progression);
+  const correctAnswer = String(progression[replacingElementIndex]);
+  progression[replacingElementIndex] = '..';
+  const question = progression.join(' ');
   return [question, correctAnswer];
 };
 
 const runProgression = () => {
-  const gameDescription = 'What number is missing in the progression?';
-  run(runRound, gameDescription);
+  run(runRound, description);
 };
 
 export default runProgression;
