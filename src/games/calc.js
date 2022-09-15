@@ -1,39 +1,38 @@
 #!/usr/bin/env node
 
 import run from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber, generateIndex } from '../utils.js';
 
-const getRandomOperand = () => {
-  const randomNumber = getRandomNumber() % 3; // для выбора рандомного операнда
-  switch (randomNumber) {
-    case 0: return '+';
-    case 1: return '-';
-    case 2: return '*';
-    default: return '+';
-  }
+const description = 'What is the result of the expression?';
+const minValue = 0;
+const maxValue = 100;
+
+const getRandomOperator = () => {
+  const operators = ['+', '-', '*'];
+  const index = generateIndex(operators); // для выбора рандомного операнда
+  return operators[index];
 };
 
-const getCalculation = (number1, number2, operand) => {
-  switch (operand) {
-    case '+': return number1 + number2;
-    case '-': return number1 - number2;
-    case '*': return number1 * number2;
-    default: return 0;
+const calculate = (x, y, operator) => {
+  switch (operator) {
+    case '+': return x + y;
+    case '-': return x - y;
+    case '*': return x * y;
+    default: throw new Error(`Unknown operator: '${operator}'!`);
   }
 };
 
 const runRound = () => {
-  const number1 = getRandomNumber(0, 100);
-  const number2 = getRandomNumber(0, 100);
-  const operand = getRandomOperand();
-  const question = `Question: ${number1} ${operand} ${number2}`;
-  const correctAnswer = getCalculation(number1, number2, operand);
+  const number1 = getRandomNumber(minValue, maxValue);
+  const number2 = getRandomNumber(minValue, maxValue);
+  const operator = getRandomOperator();
+  const question = `${number1} ${operator} ${number2}`;
+  const correctAnswer = String(calculate(number1, number2, operator));
   return [question, correctAnswer];
 };
 
 const runCalc = () => {
-  const gameDescription = 'What is the result of the expression?';
-  run(runRound, gameDescription);
+  run(runRound, description);
 };
 
 export default runCalc;
