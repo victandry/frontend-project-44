@@ -25,9 +25,9 @@ const calculate = (x, y, operator) => {
 const runRound = () => {
   const number1 = getRandomNumber(minValue, maxValue);
   const number2 = getRandomNumber(minValue, maxValue);
-  const operator = getRandomOperator();
-  const question = `${number1} ${operator} ${number2}`;
-  const correctAnswer = String(calculate(number1, number2, operator));
+  const operation = getRandomOperator();
+  const question = `${number1} ${operation} ${number2}`;
+  const correctAnswer = String(calculate(number1, number2, operation));
   return [question, correctAnswer];
 };
 
