@@ -7,11 +7,11 @@ const run = (getRound, description) => {
   console.log(`Hello, ${name}!`);
   console.log(description);
   for (let i = 0; i < roundsCount; i += 1) {
-    const [question, correctAnswer] = getRound();
+    const [question, corrAnswer] = getRound();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer !== correctAnswer) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
+    if (userAnswer !== corrAnswer) {
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${corrAnswer}.`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
