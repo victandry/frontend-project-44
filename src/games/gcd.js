@@ -1,22 +1,26 @@
 #!/usr/bin/env node
 
 import run from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
-const getGcd = (num1, num2) => {
+const description = 'Find the greatest common divisor of given numbers.';
+const minValue = 0;
+const maxValue = 100;
+
+const getGcd = (number1, number2) => {
   let gcd = 1; // НОД по умолчанию
   let remainder = 2; // остаток от деления, сначала произвольный
-  let number1 = Math.abs(num1);
-  let number2 = Math.abs(num2);
-  if (Math.sign(number1 - number2) < 0) {
-    number1 = number2;
-    number2 = Math.abs(num1);
+  let x = Math.abs(number1);
+  let y = Math.abs(number2);
+  if (Math.sign(x - y) < 0) {
+    x = y;
+    y = Math.abs(number1);
   }
   while (remainder ** 2 > 1) { // алгоритм Евклида
-    remainder = number1 % number2; // если = 0, то НОД = absnum2; если = 1, то вз-простые числа
-    gcd = number2;
-    number1 = number2;
-    number2 = remainder;
+    remainder = x % y; // если = 0, то НОД = absnum2; если = 1, то вз-простые числа
+    gcd = y;
+    x = y;
+    y = remainder;
     if (remainder === 1) {
       gcd = 1;
     }
@@ -25,16 +29,15 @@ const getGcd = (num1, num2) => {
 };
 
 const runRound = () => {
-  const number1 = getRandomNumber(0, 100);
-  const number2 = getRandomNumber(0, 100);
-  const question = `Question: ${number1} ${number2}`;
-  const correctAnswer = getGcd(number1, number2);
+  const number1 = getRandomNumber(minValue, maxValue);
+  const number2 = getRandomNumber(minValue, maxValue);
+  const question = `${number1} ${number2}`;
+  const correctAnswer = String(getGcd(number1, number2));
   return [question, correctAnswer];
 };
 
 const runGcd = () => {
-  const gameDescription = 'Find the greatest common divisor of given numbers.';
-  run(runRound, gameDescription);
+  run(runRound, description);
 };
 
 export default runGcd;
