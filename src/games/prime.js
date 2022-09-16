@@ -8,6 +8,9 @@ const minValue = 0;
 const maxValue = 100;
 
 const isPrime = (number) => {
+  if (number === 1) {
+    return 'no';
+  }
   let divisor = 1;
   const halfNumber = Math.ceil(number / 2);
   for (let i = 2; i <= halfNumber; i += 1) {
