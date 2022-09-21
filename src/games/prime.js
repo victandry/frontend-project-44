@@ -8,28 +8,28 @@ const minValue = 0;
 const maxValue = 100;
 
 const isPrime = (number) => {
-  if (number === 1) {
-    return 'no';
+  if (number < 1) {
+    return false;
   }
   let divisor = 1;
-  const halfNumber = Math.ceil(number / 2);
-  for (let i = 2; i <= halfNumber; i += 1) {
+  const divisorLimit = Math.ceil(Math.sqrt(number) / 2);
+  for (let i = 2; i <= divisorLimit; i += 1) {
     if (number % i === 0) {
       divisor = i;
     }
   }
-  return divisor === 1 ? 'yes' : 'no';
+  return divisor === 1;
 };
 
-const runRound = () => {
+const getRound = () => {
   const number = getRandomNumber(minValue, maxValue);
-  const question = `${number}`;
-  const correctAnswer = isPrime(number);
+  const question = String(number);
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
 const runPrime = () => {
-  run(runRound, description);
+  run(getRound, description);
 };
 
 export default runPrime;
