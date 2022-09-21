@@ -1,38 +1,38 @@
 #!/usr/bin/env node
 
 import run from '../index.js';
-import { getRandomNumber, generateIndex } from '../utils.js';
+import { getRandomNumber, getRandomIndex } from '../utils.js';
 
 const description = 'What number is missing in the progression?';
-const minLengthValue = 5;
-const maxLengthValue = 10;
-const minElementValue = 0;
-const maxElementValue = 100;
-const minIntervalValue = 1;
-const maxIntervalValue = 50;
+const minLength = 5;
+const maxLength = 10;
+const minStart = 0;
+const maxStart = 100;
+const minInterval = 1;
+const maxInterval = 50;
 
-const generateProgression = (length, startElement, interval) => {
+const generateProgression = (length, start, interval) => {
   const progression = [];
   for (let i = 0; i < length; i += 1) {
-    progression.push(startElement + interval * i);
+    progression.push(start + interval * i);
   }
   return progression;
 };
 
-const runRound = () => {
-  const progressionLength = getRandomNumber(minLengthValue, maxLengthValue);
-  const startElement = getRandomNumber(minElementValue, maxElementValue);
-  const progressionInterval = getRandomNumber(minIntervalValue, maxIntervalValue);
-  const progression = generateProgression(progressionLength, startElement, progressionInterval);
-  const replacingElementIndex = generateIndex(progression);
-  const correctAnswer = String(progression[replacingElementIndex]);
-  progression[replacingElementIndex] = '..';
+const getRound = () => {
+  const length = getRandomNumber(minLength, maxLength);
+  const start = getRandomNumber(minStart, maxStart);
+  const interval = getRandomNumber(minInterval, maxInterval);
+  const progression = generateProgression(length, start, interval);
+  const replacementIndex = getRandomIndex(progression);
+  const correctAnswer = String(progression[replacementIndex]);
+  progression[replacementIndex] = '..';
   const question = progression.join(' ');
   return [question, correctAnswer];
 };
 
 const runProgression = () => {
-  run(runRound, description);
+  run(getRound, description);
 };
 
 export default runProgression;
