@@ -10,9 +10,9 @@ const maxValue = 100;
 const isEven = (number) => number % 2 === 0;
 
 const getRound = () => {
-  const randomNumber = getRandomNumber(minValue, maxValue);
-  const question = String(randomNumber);
-  const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
+  const number = getRandomNumber(minValue, maxValue);
+  const question = String(number);
+  const correctAnswer = isEven(number) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
