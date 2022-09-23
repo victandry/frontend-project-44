@@ -8,17 +8,16 @@ const minValue = 0;
 const maxValue = 100;
 
 const isPrime = (number) => {
-  if (number < 1) {
+  if (number <= 1) {
     return false;
   }
-  let divisor = 1;
-  const divisorLimit = Math.ceil(Math.sqrt(number) / 2);
+  const divisorLimit = Math.ceil(Math.sqrt(number));
   for (let i = 2; i <= divisorLimit; i += 1) {
     if (number % i === 0) {
-      divisor = i;
+      return false;
     }
   }
-  return divisor === 1;
+  return true;
 };
 
 const getRound = () => {
